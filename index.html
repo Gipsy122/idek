@@ -1,64 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discipline OS | 2026</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <meta charset="UTF-8" />
+  <title>Study Discipline System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="glass-container">
-        <header>
-            <h1 id="page-title">Discipline OS</h1>
-            <div id="admin-indicator" class="hidden">ADMIN MODE</div>
-        </header>
+  <div id="app">
+    <header class="glass">
+      <h1>Study Discipline System</h1>
+      <p id="roleLabel"></p>
+    </header>
 
-        <main id="app">
-            <section class="gauges-section">
-                <div class="gauge-card main-gauge">
-                    <h3>Break Time (Main)</h3>
-                    <div class="gauge-wrapper">
-                        <div id="break-gauge-fill" class="gauge-fill"></div>
-                        <span id="break-gauge-text">03:30:00</span>
-                    </div>
-                </div>
-                <div class="gauge-card sub-gauge">
-                    <h3>Unnecessary Off</h3>
-                    <div class="gauge-wrapper">
-                        <div id="off-gauge-fill" class="gauge-fill"></div>
-                        <span id="off-gauge-text">00:20:00</span>
-                    </div>
-                </div>
-            </section>
+    <!-- RULES -->
+    <section class="glass rules">
+      <h3>Rules</h3>
+      <ul>
+        <li>Unauthorized violations deduct from 3.5 hrs</li>
+        <li>Complaints after violations are ignored</li>
+        <li>Every wrong answer deducts 2 minutes</li>
+        <li>Many unspoken rules apply</li>
+      </ul>
+    </section>
 
-            <section class="timers-grid" id="timers-container">
-                </section>
+    <!-- TIMERS -->
+    <section id="timers" class="grid"></section>
 
-            <section class="coupon-section">
-                <h2>Rewards & Coupons</h2>
-                <div id="admin-coupon-controls" class="admin-only hidden">
-                    <input type="text" id="coupon-code" placeholder="CODE">
-                    <input type="number" id="coupon-reward" placeholder="Mins">
-                    <input type="date" id="coupon-expiry">
-                    <button onclick="createCoupon()">Create</button>
-                </div>
-                <div id="coupon-list" class="coupon-list"></div>
-            </section>
+    <!-- COUPONS -->
+    <section class="glass">
+      <h3>Coupons</h3>
+      <div id="coupons"></div>
+    </section>
 
-            <section class="rules-section">
-                <h3>System Protocols</h3>
-                <ul>
-                    <li>Unauthorized violations deduct from Main Gauge</li>
-                    <li>Complaints after violations are ignored</li>
-                    <li>Every wrong answer: -2 mins</li>
-                    <li>"Many unspoken rules apply"</li>
-                </ul>
-                <div id="study-estimate">Study Estimate: 12h 55m</div>
-            </section>
-        </main>
-    </div>
-    <script src="script.js"></script>
+    <!-- ADMIN PANEL -->
+    <section id="adminPanel" class="glass hidden">
+      <h3>Admin Controls</h3>
+      <div id="adminControls"></div>
+    </section>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
